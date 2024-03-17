@@ -2,15 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
+    <!--<parent>
+        配合github smile 模块试用，与下面groupId 互斥
         <artifactId>smile</artifactId>
         <groupId>com.smile</groupId>
         <version>1.0-SNAPSHOT</version>
-    </parent>
+    </parent>-->
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.smile</groupId>
+    <artifactId>smile-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <artifactId>smile-demo</artifactId>
+
     <description>测试使用模块，不包含主逻辑</description>
 
 
