@@ -1,4 +1,4 @@
-package com.demo.test.offer.jvm;
+package com.demo.test.offer.thread;
 
 /**
  * @author 57824

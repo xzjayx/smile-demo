@@ -1,4 +1,4 @@
-package com.demo.test.offer.jvm;
+package com.demo.test.offer.thread;
 
 import lombok.SneakyThrows;
 
@@ -30,15 +30,28 @@ public class Philosopher extends Thread{
     @SneakyThrows
     @Override
     public void run() {
-        //每一个哲学家先抢左边的筷子在抢右边的筷子 ，当前代码会死锁。
-        synchronized (left){
-            Thread.sleep(index+ 1000);
-            System.out.println("第"+index+"号哲学家抢到了左边的筷子");
+        //每一个哲学家先抢左边的筷子在抢右边的筷子 ，当前代码会死锁。解决办法 混出一批右撇子
+        if(index % 2 == 0){
             synchronized (right){
-                Thread.sleep(index);
-                System.out.println("第"+index+"号哲学家抢到右边的筷子开始吃完饭了");
+                Thread.sleep(index+ 1000);
+                System.out.println("第"+index+"号哲学家抢到了左边的筷子");
+                synchronized (left){
+                    Thread.sleep(index);
+                    System.out.println("第"+index+"号哲学家抢到右边的筷子开始吃完饭了");
+                }
+            }
+        }else {
+            synchronized (left){
+                Thread.sleep(index+ 1000);
+                System.out.println("第"+index+"号哲学家抢到了左边的筷子");
+                synchronized (right){
+                    Thread.sleep(index);
+                    System.out.println("第"+index+"号哲学家抢到右边的筷子开始吃完饭了");
+                }
             }
         }
+
+
 
     }
 
